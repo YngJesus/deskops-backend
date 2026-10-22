@@ -1,0 +1,30 @@
+debug: false
+spring:
+  main:
+    banner-mode: off
+  datasource:
+    url: jdbc:h2:mem:support;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=TRUE
+    username: sa
+    password:
+  flyway:
+    enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+app:
+  security:
+    jwt-secret: test-secret-that-is-definitely-longer-than-thirty-two-bytes
+    access-token-ttl: PT1H
+  storage:
+    location: ${java.io.tmpdir}/support-ticket-test-uploads
+  bootstrap:
+    admin-email: admin@test.dev
+    admin-password: Admin123!
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+logging:
+  level:
+    root: WARN
